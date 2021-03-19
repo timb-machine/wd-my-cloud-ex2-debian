@@ -16,9 +16,9 @@ fi
 if [ -d "${CHOCKERROOTDIRECTORYNAME}" ]
 then
 	umount "${CHOCKERROOTDIRECTORYNAME}/host"
-	for partition in dev proc sys tmp
+	for partitionname in dev proc sys tmp
 	do
-		umount "${CHOCKERROOTDIRECTORYNAME}/${partition}"
+		umount "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 	done
 	rm -ir "${CHOCKERROOTDIRECTORYNAME}"
 fi
@@ -28,13 +28,13 @@ then
 	mkdir "${CHOCKERROOTDIRECTORYNAME}/host"
 fi
 mount -o bind / "${CHOCKERROOTDIRECTORYNAME}/host"
-for partition in dev proc sys tmp
+for partitionname in dev proc sys tmp
 do
-	if [ ! -d "${CHOCKERROOTDIRECTORYNAME}/${partition}" ]
+	if [ ! -d "${CHOCKERROOTDIRECTORYNAME}/${partitionname}" ]
 	then
-		mkdir "${CHOCKERROOTDIRECTORYNAME}/${partition}"
+		mkdir "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 	fi
-	mount -o bind "/${partition}" "${CHOCKERROOTDIRECTORYNAME}/${partition}"
+	mount -o bind "/${partition}" "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 done
 if [ ! -d "${CHOCKERTEMPLATEREPONAME}" ]
 then
@@ -50,7 +50,7 @@ then
 	"${CHOCKERTEMPLATEEPONAME}/chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
 fi
 umount "${CHOCKERROOTDIRECTORYNAME}/host"
-for partition in dev proc sys tmp
+for partitionname in dev proc sys tmp
 do
-	umount "${CHOCKERROOTDIRECTORYNAME}/${partition}"
+	umount "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 done

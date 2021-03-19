@@ -13,6 +13,15 @@ else
 	git pull
 	cd "${oldpwd}"
 fi
+if [ -d "${CHOCKERROOTDIRECTORYNAME}" ]
+then
+	umount "${CHOCKERROOTDIRECTORYNAME}/host"
+	for partition in dev proc sys tmp
+	do
+		umount "${CHOCKERROOTDIRECTORYNAME}/${partition}"
+	done
+	rm -ir "${CHOCKERROOTDIRECTORYNAME}"
+fi
 cp -rp "${CHOCKERREPONAME}/chocker" "${CHOCKERROOTDIRECTORYNAME}"
 if [ ! -d "${CHOCKERROOTDIRECTORYNAME}/host" ]
 then

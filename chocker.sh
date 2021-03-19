@@ -8,10 +8,10 @@ if [ ! -d "${CHOCKERREPONAME}" ]
 then
 	git clone "https://github.com/timb-machine/${CHOCKERREPONAME}" "${CHOCKERREPONAME}"
 else
-	oldpwd="${PWD}"
+	cwd="${PWD}"
 	cd "${CHOCKERREPONAME}"
 	git pull
-	cd "${oldpwd}"
+	cd "${cwd}"
 fi
 if [ -d "${CHOCKERROOTDIRECTORYNAME}" ]
 then
@@ -40,10 +40,10 @@ if [ ! -d "${CHOCKERTEMPLATEREPONAME}" ]
 then
 	git clone "git@github.com:timb-machine/${CHOCKERTEMPLATEREPONAME}" "${CHOCKERTEMPLATEREPONAME}"
 else
-	oldpwd="${PWD}"
+	cwd="${PWD}"
 	cd "${CHOCKERTEMPLATEREPONAME}"
 	git pull
-	cd "${oldpwd}"
+	cd "${cwd}"
 fi
 if [ -x "${CHOCKERTEMPLATEEPONAME}/chocker-bootstrap.sh" ]
 then

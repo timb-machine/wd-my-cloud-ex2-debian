@@ -15,12 +15,12 @@ else
 fi
 if [ -d "${CHOCKERROOTDIRECTORYNAME}" ]
 then
-	umount "${CHOCKERROOTDIRECTORYNAME}/host"
-	for partitionname in dev proc sys tmp
+	for partitionname in dev proc sys tmp host
 	do
 		umount "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 	done
-	rm -ir "${CHOCKERROOTDIRECTORYNAME}"
+	find "${CHOCKERROOTDIRECTORYNAME}" -type l -exec rm {} \;
+	rm -rf "${CHOCKERROOTDIRECTORYNAME}"
 fi
 cp -rp "${CHOCKERREPONAME}/chocker" "${CHOCKERROOTDIRECTORYNAME}"
 if [ ! -d "${CHOCKERROOTDIRECTORYNAME}/host" ]
@@ -50,7 +50,7 @@ then
 	"${CHOCKERTEMPLATEREPONAME}/chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
 fi
 umount "${CHOCKERROOTDIRECTORYNAME}/host"
-for partitionname in dev proc sys tmp
+for partitionname in dev proc sys tmp host
 do
 	umount "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 done

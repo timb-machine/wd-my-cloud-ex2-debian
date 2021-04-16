@@ -34,7 +34,7 @@ do
 	then
 		mkdir "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 	fi
-	mount -o bind "/${partition}" "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
+	mount -o bind "/${partitionname}" "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"
 done
 if [ ! -d "${CHOCKERTEMPLATEREPONAME}" ]
 then

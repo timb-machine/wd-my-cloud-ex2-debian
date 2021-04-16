@@ -45,7 +45,7 @@ else
 	git pull
 	if [ -x chocker-bootstrap.sh ]
 	then
-		if [ -n "$(printf "${CHOCKERROOTDIRECTORYNAME}" | grep "^/")"
+		if [ -n "$(printf "${CHOCKERROOTDIRECTORYNAME}" | grep "^/")" ]
 		then
 			./chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
 		else

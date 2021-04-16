@@ -43,11 +43,16 @@ else
 	cwd="${PWD}"
 	cd "${CHOCKERTEMPLATEREPONAME}"
 	git pull
+	if [ -x chocker-bootstrap.sh ]
+	then
+		if [ -n "$(printf "${CHOCKERROOTDIRECTORYNAME}" | grep "^/")"
+		then
+			./chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
+		else
+			./chocker-bootstrap.sh" "${cwd}/${CHOCKERROOTDIRECTORYNAME}"
+		fi
+	fi
 	cd "${cwd}"
-fi
-if [ -x "${CHOCKERTEMPLATEREPONAME}/chocker-bootstrap.sh" ]
-then
-	"${CHOCKERTEMPLATEREPONAME}/chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
 fi
 umount "${CHOCKERROOTDIRECTORYNAME}/host"
 for partitionname in dev proc sys tmp host

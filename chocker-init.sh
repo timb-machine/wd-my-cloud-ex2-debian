@@ -17,7 +17,7 @@ do
 	mount -o bind "/${partitionname}" "${CHOCKERCHROOT}/${partitionname}"
 done
 # start chroot'ed services
-if [ -x "${DOCKERCHROOT}/docker-init.sh" ]
+if [ -x "${CHOCKERCHROOT}/chocker-init.sh" ]
 then
-	chroot "${DOCKERCHROOT}" /docker-init.sh &
+	chroot "${CHOCKERCHROOT}" /chocker-init.sh &
 fi

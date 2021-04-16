@@ -2,7 +2,6 @@
 
 CHOCKERCHROOT="${1}"
 
-# prepare chroot
 if [ ! -d "${CHOCKERCHROOT}/host" ]
 then
 	mkdir "${CHOCKERCHROOT}/host"
@@ -16,7 +15,6 @@ do
 	fi
 	mount -o bind "/${partitionname}" "${CHOCKERCHROOT}/${partitionname}"
 done
-# start chroot'ed services
 if [ -x "${CHOCKERCHROOT}/chocker-init.sh" ]
 then
 	chroot "${CHOCKERCHROOT}" /chocker-init.sh &

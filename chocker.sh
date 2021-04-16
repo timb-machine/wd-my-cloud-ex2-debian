@@ -54,7 +54,6 @@ else
 	fi
 	cd "${cwd}"
 fi
-umount "${CHOCKERROOTDIRECTORYNAME}/host"
 for partitionname in dev proc sys tmp host
 do
 	umount "${CHOCKERROOTDIRECTORYNAME}/${partitionname}"

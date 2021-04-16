@@ -47,9 +47,9 @@ else
 	then
 		if [ -z "$(printf "${CHOCKERROOTDIRECTORYNAME}" | grep "^/")" ]
 		then
-			./chocker-bootstrap.sh" "${cwd}/${CHOCKERROOTDIRECTORYNAME}"
+			./chocker-bootstrap.sh "${cwd}/${CHOCKERROOTDIRECTORYNAME}"
 		else
-			./chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
+			./chocker-bootstrap.sh "${CHOCKERROOTDIRECTORYNAME}"
 		fi
 	fi
 	cd "${cwd}"

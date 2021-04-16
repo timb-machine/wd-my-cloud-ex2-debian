@@ -45,9 +45,9 @@ else
 	git pull
 	cd "${cwd}"
 fi
-if [ -x "${CHOCKERTEMPLATEEPONAME}/chocker-bootstrap.sh" ]
+if [ -x "${CHOCKERTEMPLATEREPONAME}/chocker-bootstrap.sh" ]
 then
-	"${CHOCKERTEMPLATEEPONAME}/chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
+	"${CHOCKERTEMPLATEREPONAME}/chocker-bootstrap.sh" "${CHOCKERROOTDIRECTORYNAME}"
 fi
 umount "${CHOCKERROOTDIRECTORYNAME}/host"
 for partitionname in dev proc sys tmp

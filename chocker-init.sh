@@ -7,7 +7,7 @@ then
 	mkdir "${CHOCKERCHROOT}/host"
 fi
 mount -o bind / "${CHOCKERCHROOT}/host"
-for partitionname in dev proc sys tmp opt/pkgsrc opt/pkg
+for partitionname in dev proc sys tmp
 do
 	if [ ! -d "${CHOCKERCHROOT}/${partitionname}" ]
 	then
